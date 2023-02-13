@@ -1,5 +1,5 @@
 const Category = require('../models/category');
-const catchAsyncErrors = require("../middleware/catchAsyncError")
+const catchAsyncErrors = require("../middleware/catchAsyncError");
 
 //Create Category--Admin Only
 exports.createCategory = catchAsyncErrors(async(req,res,next)=>{
