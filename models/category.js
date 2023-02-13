@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const category =new mongoose.Schema({
+    menu_item_id:[{type:mongoose.Schema.Types.ObjectId,ref:"MenuItem"}],
     category_name:{type:String,required:[true,"Please Enter Category Name"]},
     slug:{type:String,required:true,unique:true,index:true},
     createdAt: { type: Date, default: Date.now },
