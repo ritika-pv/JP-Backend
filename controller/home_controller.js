@@ -1,7 +1,7 @@
 const Category = require('../models/category');
 const catchAsyncErrors = require("../middleware/catchAsyncError");
 const ErrorHandler = require('../utils/errorHandler');
-const ApiFeatures = require('../utils/apiFeatures');
+
 
 module.exports ={
     getCategorybySlug:  catchAsyncErrors(async(req,res)=>{
