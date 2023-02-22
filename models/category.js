@@ -5,6 +5,7 @@ const category =new mongoose.Schema({
     category_name:{type:String,required:[true,"Please Enter Category Name"]},
     slug:{type:String,required:true,unique:true,index:true},
     createdAt: { type: Date, default: Date.now },
+    user:{type:mongoose.Schema.ObjectId,ref:"User",required:true,},
     modifiedAt: { type: Date, default: Date.now },
     deleted: { type: Boolean, default: false },
     images:{public_id:{type:String,required:true},url:{type:String,required:true}},

@@ -33,6 +33,7 @@ module.exports ={
 
 //Create Category--Admin Only
     createCategory : catchAsyncErrors(async(req,res,next)=>{
+        request.body.user=req.user.id;
         const category  = await Category.create(req.body);
         res.status(201).json({success:true,category}); 
     }),

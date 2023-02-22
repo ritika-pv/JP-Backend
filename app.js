@@ -15,8 +15,9 @@ app.use("/api",categories)
 const menu = require('./routes/menu_routes');
 app.use("/api",menu);
 const user =require("./routes/user_routes");
-app.use("/api",user)
-
+app.use("/api",user);
+const order=require("./routes/order_routes");
+app.use("/api",order);
 //Middleware for error
 app.use(errorHandler)
 module.exports = app;

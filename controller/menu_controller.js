@@ -1,4 +1,4 @@
-const Menu = require('../models/menu');
+const Menu = require('../models/menuModel');
 const catchAsyncErrors = require("../middleware/catchAsyncError");
 
 //Create MenuItems --Admin Only

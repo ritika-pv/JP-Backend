@@ -16,6 +16,29 @@ const server=app.listen(process.env.PORT,()=>{
 
 
 
+
+//checking if smtp is connected or not
+
+
+// const net = require('net');
+
+// const serverAddress = 'smtp.gmail.com';
+// const serverPort = 587;
+
+// const client = net.createConnection({ port: serverPort, host: serverAddress }, () => {
+//   console.log(`Connected to ${serverAddress}:${serverPort}`);
+// });
+
+// client.on('error', (err) => {
+//   console.error(`Error connecting to ${serverAddress}:${serverPort}: ${err.message}`);
+// });
+
+// client.on('end', () => {
+//   console.log(`Disconnected from ${serverAddress}:${serverPort}`);
+// });
+
+
+
 //Unhandled Promise Rejection
 //server band ho jayega faltu load nahi lega sending load load load .....no ab ye nahi hoga
 process.on("unhandledRejection",err=>{
