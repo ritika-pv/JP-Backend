@@ -1,19 +1,19 @@
 const State = require("../models/stateModel");
 const catchAsyncError = require("../middleware/catchAsyncError");
 
-module.exports={
-//Create States
-createState : catchAsyncError(async (req, res, next) => {
+module.exports = {
+  //Create States
+  createState: catchAsyncError(async (req, res, next) => {
     const state = await State.create(req.body);
     res.status(201).json({ success: true, state });
   }),
 
   //Get States
-  getStates : catchAsyncError(async(req,res,next)=>{
-    const states = await State.find().populate("cities");
-    res.status(200).json({success:true,states});
-  })
-}
+  getStates: catchAsyncError(async (req, res, next) => {
+    const states = await State.find().sort({name:1}).populate({path : 'cities',options : {sort :{name : 1}}});
+    res.status(200).json({ success: true, states });
+  }),
+};
 
 const states = [
   {
