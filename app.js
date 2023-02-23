@@ -7,6 +7,7 @@ const errorHandler=require("./middleware/error")
 app.use(express.json());
 app.use(cookieParser());
 //Route imports
+
 // Category
 const categories  = require('./routes/home_routes')
 app.use("/api",categories)
@@ -18,6 +19,15 @@ const user =require("./routes/user_routes");
 app.use("/api",user);
 const order=require("./routes/order_routes");
 app.use("/api",order);
+
+//State
+const state = require("./routes/state_routes");
+app.use("/api",state)
+
+//City
+const city = require("./routes/city_routes");
+app.use("/api",city);
+
 //Middleware for error
 app.use(errorHandler)
 module.exports = app;
