@@ -7,6 +7,9 @@ const connectDatabase = require('./config/database');
 //config
 env.config({path:"config/config.env"})
 
+
+
+
 //connectingDb
 connectDatabase();
 

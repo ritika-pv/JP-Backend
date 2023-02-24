@@ -1,12 +1,16 @@
 const express = require("express")
-const app = express();
+const cors = require('cors');
 const cookieParser=require("cookie-parser");
-
-
 const errorHandler=require("./middleware/error")
+
+const app = express();
+
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
+
 //Route imports
+
 
 // Category
 const categories  = require('./routes/home_routes')
@@ -28,6 +32,8 @@ app.use("/api",state)
 const city = require("./routes/city_routes");
 app.use("/api",city);
 
+
 //Middleware for error
 app.use(errorHandler)
+
 module.exports = app;
