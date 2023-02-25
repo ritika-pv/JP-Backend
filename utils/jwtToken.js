@@ -3,7 +3,7 @@
 
 const sendToken=(user,statusCode,res)=>{
     const token=user.getJWTToken();
- console.log("token :: ",token)
+    console.log("token :: ",token)
     //options for cookie
 
     const options={
@@ -12,6 +12,8 @@ const sendToken=(user,statusCode,res)=>{
         ),
         httpOnly:true,
     };
+
+   
     res.status(statusCode).cookie('token',token,options).json({
         success:true,
         user,
