@@ -7,7 +7,7 @@ module.exports = {
     const { slug } = req.params;
     //searches category name as well
     // search slug category
-    const matchedCategory = await Category.find({
+    const matchedCategory = await Category.findOne({
       $or: [{ category_name: { $regex: slug } }, { slug: { $regex: slug } }],
     })
       .populate({

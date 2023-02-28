@@ -25,7 +25,6 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
       url: "profilePicUrl",
     },
   });
-
   sendToken(user, 201, res); //201 = created
 });
 
