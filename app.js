@@ -32,6 +32,10 @@ app.use("/api",state)
 const city = require("./routes/city_routes");
 app.use("/api",city);
 
+//Cart
+const cart = require("./routes/add_to_cart_routes");
+app.use("/api",cart);
+
 
 //Middleware for error
 app.use(errorHandler)

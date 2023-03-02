@@ -3,6 +3,7 @@ const validator = require("validator");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto"); //built in module
+const Cart = require("./addToCart");
 
 const userSchema = new mongoose.Schema({
   fname: {
@@ -28,6 +29,10 @@ const userSchema = new mongoose.Schema({
     required: [true, "Please enter your email"],
     minLength: [8, "Password should exceed 8 characters "],
     select: false,
+  },
+  cart: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Cart",
   },
   avatar: {
     public_id: {
