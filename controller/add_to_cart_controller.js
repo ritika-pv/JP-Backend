@@ -10,9 +10,17 @@ module.exports = {
       ],
     });
     if (item) {
-      await Cart.deleteOne({ cart_product: req.body.cart_product });
-      const cartItem = await Cart.create(req.body);
-      res.status(200).json({ success: true, cartItem });
+      const result = await Cart.updateOne(
+        {
+          user_id: req.body.user_id,
+          cart_product: req.body.cart_product,
+        },
+        { $set: { quantity: req.body.quantity } }
+      );
+      console.log(result.acknowledged, "result");
+      if (result.acknowledged === true) {
+        res.status(200).json({ success: true, message: "Quantity Changed" });
+      }
     } else {
       const cartItem = await Cart.create(req.body);
       res.status(200).json({ success: true, cartItem });
