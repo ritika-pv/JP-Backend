@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, "Please enter your email"],
+    required: [true, "Please enter your password"],
     minLength: [8, "Password should exceed 8 characters "],
     select: false,
   },
@@ -86,6 +86,10 @@ const userSchema = new mongoose.Schema({
       },
       message: "Invalid zip code",
     },
+  },
+  token: {
+    type: String,
+    default: null,
   },
   resetPasswordToken: String,
   resetPasswordExpire: Date,
