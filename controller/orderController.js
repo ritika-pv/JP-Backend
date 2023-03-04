@@ -2,6 +2,7 @@ const Order = require("../models/orderModel");
 const MenuItem = require("../models/menuModel");
 const catchAsyncErrors = require("../middleware/catchAsyncError");
 const ErrorHandler = require("../utils/errorHandler");
+const Cart = require("../models/addToCart");
 
 //create new order
 
@@ -15,6 +16,16 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
     paidAt: Date.now(),
     user: req.user._id,
   });
+  if (order) {
+    Cart.deleteMany({ user_id: req.user._id },function(err,result){
+      if(err){
+        console.log("error",err);
+        return;
+      }
+      console.log("deleted",result.deletedCount,'doc');
+
+    });
+  }
   res.status(201).json({
     success: true,
     order,
